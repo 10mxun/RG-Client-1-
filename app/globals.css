@@ -1,0 +1,37 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: #20232a;
+  background: #f7f8fa;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+main { max-width: 1080px; margin: 0 auto; padding: 0 28px 60px; }
+header { height: 72px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e4e6ea; }
+.brand { color: #20232a; font-size: 21px; font-weight: 700; letter-spacing: -1px; text-decoration: none; }
+.today { color: #848994; font-size: 13px; }
+
+.intro { padding: 54px 0 35px; }
+.intro p { margin: 0 0 7px; color: #787e8a; font-size: 11px; font-weight: 700; letter-spacing: 1px; }
+.intro h1 { margin: 0 0 11px; font-size: 34px; letter-spacing: -1.5px; }
+.summary { color: #707681; font-size: 14px; }
+.dashboard-layout { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 22px; align-items: start; }
+
+.panel { padding: 24px; background: #fff; border: 1px solid #e4e6ea; border-radius: 8px; }
+.panel-heading { margin-bottom: 18px; }
+h2 { margin: 0; font-size: 16px; }
+.post-list, .user-grid { display: grid; gap: 0; border-top: 1px solid #edf0f2; }
+.activity-card { display: flex; gap: 12px; padding: 16px 0; border-bottom: 1px solid #edf0f2; }
+.activity-icon { width: 22px; height: 22px; flex: 0 0 22px; display: grid; place-items: center; margin-top: 1px; color: #21825c; background: #e4f5ed; border-radius: 50%; font-size: 12px; }
+.activity-card h3 { margin: 0 0 5px; font-size: 14px; font-weight: 600; text-transform: capitalize; }
+.activity-card p { display: -webkit-box; margin: 0 0 7px; color: #747a85; font-size: 13px; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+.activity-state { color: #21825c; font-size: 11px; }
+
+.user-card { padding: 13px 0; border-bottom: 1px solid #edf0f2; }
+.user-card h3 { margin: 0; font-size: 13px; font-weight: 600; }
+.user-card p { margin: 2px 0 0; color: #858b95; font-size: 12px; }
+.loading, .error { padding: 20px 0; color: #747a85; font-size: 14px; }.error { color: #b42318; }
+
+@media (max-width: 700px) { main { padding: 0 18px 40px; }.intro { padding: 40px 0 27px; }.dashboard-layout { grid-template-columns: 1fr; }.panel { padding: 19px; } }

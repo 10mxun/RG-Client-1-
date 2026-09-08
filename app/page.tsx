@@ -1,0 +1,28 @@
+import PostFeed from "./components/post-feed";
+import UserList from "./components/user-list";
+
+export default function Home() {
+  return (
+    <main>
+      <header>
+        <a className="brand" href="/">
+          Next.js 연습
+        </a>
+      </header>
+      <section className="intro">
+        <h1>오늘의 작업 현황</h1>
+        <span className="summary">
+          진행 중인 활동과 팀 구성원을 한곳에서 확인하세요.
+        </span>
+      </section>
+      <div className="dashboard-layout">
+        <section>
+          <PostFeed />
+        </section>
+        <aside>
+          <UserList />
+        </aside>
+      </div>
+    </main>
+  );
+}
