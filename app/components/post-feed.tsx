@@ -2,8 +2,14 @@
 
 import { useEffect, useState } from 'react';
 
+type Post = {
+  id: number;
+  title: string;
+  body: string;
+};
+
 export default function PostFeed() {
-  const [loaded, setLoaded] = useState(false);
+  const [posts, setPosts] = useState<Post[]>([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -12,8 +18,8 @@ export default function PostFeed() {
       try {
         const response = await fetch('/api/posts');
         if (!response.ok) throw new Error('Failed to fetch posts');
-        await response.json();
-        setLoaded(true);
+        const data: Post[] = await response.json();
+        setPosts(data.slice(0, 1));
       } catch {
         setError(true);
       } finally {
@@ -32,16 +38,18 @@ export default function PostFeed() {
 
       {loading && <div className="loading">포스트를 불러오는 중입니다<span>.</span><span>.</span><span>.</span></div>}
       {error && <div className="error">포스트를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.</div>}
-      {!loading && !error && loaded && (
+      {!loading && !error && (
         <div className="post-list">
-          <article className="activity-card">
-            <span className="activity-icon">✓</span>
-            <div>
-              <h3>테스트 1</h3>
-              <p>테스트 활동입니다.</p>
-              <span className="activity-state">완료됨</span>
-            </div>
-          </article>
+          {posts.map((post) => (
+            <article className="activity-card" key={post.id}>
+              <span className="activity-icon">✓</span>
+              <div>
+                <h3>{post.title}</h3>
+                <p>{post.body}</p>
+                <span className="activity-state">완료됨</span>
+              </div>
+            </article>
+          ))}
         </div>
       )}
     </section>

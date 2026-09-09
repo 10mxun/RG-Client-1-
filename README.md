@@ -40,8 +40,6 @@ http://localhost:3000
 
 [https://your-project-name.vercel.app](https://your-project-name.vercel.app)
 
-※ Vercel 배포 후 실제 URL로 수정
-
 ## 배운 점 / 어려웠던 점
 
 이번 프로젝트를 만들면서 Next.js에서 CSR과 RSC를 사용하는 방법을 직접 경험해봤습니다.
@@ -53,9 +51,3 @@ http://localhost:3000
 프로젝트를 실행하는 과정에서는 상위 폴더의 lockfile 때문에 Next.js가 프로젝트 루트를 잘못 인식하는 문제가 있었습니다. `next.config.ts`에서 `outputFileTracingRoot`를 설정해서 현재 프로젝트를 루트로 지정하는 방법으로 해결했습니다.
 
 처음에는 CSR과 RSC의 차이를 이론으로만 알고 있었는데 직접 적용해보면서 각각 어떤 상황에서 사용할 수 있는지 조금 더 이해할 수 있었습니다.
-# RG-Client-1-
-# RG-Client-1-
-# RG-Client-1-
-# RG-Client-1-
-# RG-Client-1-
-# RG-Client-1-
