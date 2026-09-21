@@ -1,13 +1,9 @@
-export default function Loading() {
-  return (
-    <main>
-      <header>
-        <a className="brand" href="/">Next.js 연습</a>
-      </header>
-      <section className="intro">
-        <h1>팀원 목록</h1>
-      </section>
-      <p className="loading">팀원 정보를 불러오는 중입니다.</p>
-    </main>
-  );
-}
+/**
+ * @module app/user/loading
+ * Next.js loading 파일입니다.
+ *
+ * /user 경로의 로딩 상태를 표시합니다.
+ * FSD pages layer의 loading.tsx를 export합니다.
+ */
+
+export { default } from '@/pages/user/loading';

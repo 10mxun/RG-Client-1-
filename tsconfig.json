@@ -16,6 +16,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@/pages/*": ["./src/views/*"],
+      "@/*": ["./src/*"]
+    },
     "incremental": true,
     "plugins": [
       {

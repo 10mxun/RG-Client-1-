@@ -1,23 +1,13 @@
-import PostFeed from "./components/post-feed";
+/**
+ * @module app/page
+ * Next.js app router의 홈 페이지입니다.
+ *
+ * 이 파일은 "/" 경로로 접근했을 때 렌더링됩니다.
+ * FSD pages layer의 Home 컴포넌트를 사용합니다.
+ */
 
-export default function Home() {
-  return (
-    <main>
-      <header>
-        <a className="brand" href="/">
-          Next.js 연습
-        </a>
-        <a className="user-link" href="/user">팀원 목록</a>
-      </header>
-      <section className="intro">
-        <h1>오늘의 작업 현황</h1>
-        <span className="summary">
-          진행 중인 활동과 팀 구성원을 한곳에서 확인하세요.
-        </span>
-      </section>
-      <section>
-        <PostFeed />
-      </section>
-    </main>
-  );
+import { Home } from '@/pages/home/Home';
+
+export default function AppPage() {
+  return <Home />;
 }

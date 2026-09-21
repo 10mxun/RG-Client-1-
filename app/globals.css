@@ -35,4 +35,13 @@ h2 { margin: 0; font-size: 16px; }
 .loading, .error { padding: 20px 0; color: #747a85; font-size: 14px; }.error { color: #b42318; }
 .error button { padding: 7px 10px; border: 1px solid #bbb; background: #fff; cursor: pointer; }
 
+.search-input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+  border: 1px solid #e4e6ea;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
 @media (max-width: 700px) { main { padding: 0 18px 40px; }.intro { padding: 40px 0 27px; }.panel { padding: 19px; } }
