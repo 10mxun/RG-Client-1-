@@ -1,49 +1,35 @@
 /**
  * @module features/post-list/hooks/usePostList
  * 게시글 목록 조회 로직을 캡슐화한 커스텀 훅입니다.
- * 
- * 이 훅은 다음을 처리합니다:
- * - 게시글 데이터 페칭
- * - 로딩/에러 상태 관리
- * - 페이지네이션 (첫 1개만 표시)
+ *
+ * 서버 상태는 TanStack Query를 사용하여 관리합니다.
  */
 
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { getPosts, Post } from '@/entities/post';
-import { getUsers } from '@/entities/user';
+import { useQuery } from "@tanstack/react-query";
+import { getPosts } from "@/entities/post";
+import { getUsers } from "@/entities/user";
 
-type UsePostListReturn = {
-  posts: Post[];
-  authors: Record<number, string>;
-  loading: boolean;
-  error: boolean;
-};
+export function usePostList() {
+  const postsQuery = useQuery({
+    queryKey: ["posts"],
+    queryFn: getPosts,
+  });
 
-export function usePostList(): UsePostListReturn {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [authors, setAuthors] = useState<Record<number, string>>({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const usersQuery = useQuery({
+    queryKey: ["users"],
+    queryFn: getUsers,
+  });
 
-  useEffect(() => {
-    async function fetchPosts() {
-      try {
-        const [postData, userData] = await Promise.all([getPosts(), getUsers()]);
-        setPosts(postData);
-        setAuthors(
-          Object.fromEntries(userData.map((user) => [user.id, user.name]))
-        );
-      } catch {
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    }
+  const authors = Object.fromEntries(
+    (usersQuery.data ?? []).map((user) => [user.id, user.name]),
+  );
 
-    fetchPosts();
-  }, []);
-
-  return { posts, authors, loading, error };
+  return {
+    posts: postsQuery.data ?? [],
+    authors,
+    loading: postsQuery.isLoading || usersQuery.isLoading,
+    error: postsQuery.isError || usersQuery.isError,
+  };
 }
