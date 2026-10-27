@@ -1,5 +1,5 @@
 /**
- * @module features/post-list/hooks/usePostList
+ * @module features/post-list/model/usePostList
  * 게시글 목록 조회 로직을 캡슐화한 커스텀 훅입니다.
  *
  * 서버 상태는 TanStack Query를 사용하여 관리합니다.

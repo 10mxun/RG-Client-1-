@@ -11,9 +11,7 @@ import { User, UserApiResponse } from './model';
  */
 export async function getUsers(): Promise<User[]> {
   try {
-    const response = await fetch('https://jsonplaceholder.typicode.com/users', {
-      next: { revalidate: 3600 }, // ISR: 1시간마다 재생성
-    });
+    const response = await fetch("/api/users");
 
     if (!response.ok) {
       throw new Error('사용자 목록을 불러오지 못했습니다.');
@@ -33,10 +31,7 @@ export async function getUsers(): Promise<User[]> {
  */
 export async function getUser(id: number): Promise<User> {
   try {
-    const response = await fetch(
-      `https://jsonplaceholder.typicode.com/users/${id}`,
-      { next: { revalidate: 3600 } }
-    );
+    const response = await fetch(`/api/users/${id}`);
 
     if (!response.ok) {
       throw new Error('사용자 정보를 불러오지 못했습니다.');

@@ -7,22 +7,14 @@
 
 "use client";
 
-import { useQuery } from "@tanstack/react-query";
-import { getUsers } from "@/entities/user";
+import { useUserList } from "../model/useUserList";
 
 type UserListProps = {
   limit?: number;
 };
 
 export function UserList({ limit = 3 }: UserListProps) {
-  const {
-    data: users = [],
-    isLoading,
-    isError,
-  } = useQuery({
-    queryKey: ["users"],
-    queryFn: getUsers,
-  });
+  const { data: users = [], isLoading, isError } = useUserList();
 
   if (isLoading) {
     return <p className="loading">팀원 정보를 불러오는 중입니다.</p>;

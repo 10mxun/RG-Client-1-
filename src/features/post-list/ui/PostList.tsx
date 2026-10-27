@@ -12,7 +12,7 @@
 
 'use client';
 
-import { Post } from '@/entities/post';
+import type { Post } from '@/entities/post';
 
 type PostListProps = {
   posts: Post[];

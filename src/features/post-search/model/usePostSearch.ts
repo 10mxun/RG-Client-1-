@@ -1,5 +1,5 @@
 /**
- * @module features/post-search/hooks/usePostSearch
+ * @module features/post-search/model/usePostSearch
  * 게시글 검색 로직을 캡슐화한 커스텀 훅입니다.
  *
  * 검색어와 같은 Client State는 Zustand로 관리합니다.
@@ -8,8 +8,8 @@
 "use client";
 
 import { useCallback } from "react";
-import { Post } from "@/entities/post";
-import { usePostSearchStore } from "../store/postSearchStore";
+import type { Post } from "@/entities/post";
+import { usePostSearchStore } from "./postSearchStore";
 
 type UsePostSearchReturn = {
   searchQuery: string;

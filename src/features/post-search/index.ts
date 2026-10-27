@@ -4,4 +4,4 @@
  */
 
 export { SearchInput } from './ui/SearchInput';
-export { usePostSearch } from './hooks/usePostSearch';
+export { usePostSearch } from './model/usePostSearch';

@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { QueryProvider } from "@/shared/providers/QueryProvider";
+import { AppShell, QueryProvider } from "@/app";
 
 export const metadata: Metadata = {
   title: "Next.js 연습",
-  description:
-    "Rewrite와 RSC 데이터 패칭을 보여주는 대시보드 페이지를 만들었습니다.",
+  description: "TanStack Query와 Zustand를 사용하는 팀 활동 대시보드입니다.",
 };
 
 export default function RootLayout({
@@ -14,7 +13,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <QueryProvider>{children}</QueryProvider>
+        <QueryProvider>
+          <AppShell>{children}</AppShell>
+        </QueryProvider>
       </body>
     </html>
   );

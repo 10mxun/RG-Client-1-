@@ -12,7 +12,7 @@ import { Post, PostApiResponse } from './model';
  */
 export async function getPosts(): Promise<Post[]> {
   try {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+    const response = await fetch('/api/posts');
     if (!response.ok) {
       throw new Error('Failed to fetch posts');
     }
@@ -30,7 +30,7 @@ export async function getPosts(): Promise<Post[]> {
  */
 export async function getPost(id: number): Promise<Post> {
   try {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+    const response = await fetch(`/api/posts/${id}`);
     if (!response.ok) {
       throw new Error('Failed to fetch post');
     }

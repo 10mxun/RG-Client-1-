@@ -45,3 +45,5 @@ h2 { margin: 0; font-size: 16px; }
 }
 
 @media (max-width: 700px) { main { padding: 0 18px 40px; }.intro { padding: 40px 0 27px; }.panel { padding: 19px; } }
+
+header nav { display: flex; gap: 22px; }

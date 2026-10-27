@@ -4,4 +4,4 @@
  */
 
 export { PostList } from './ui/PostList';
-export { usePostList } from './hooks/usePostList';
+export { usePostList } from './model/usePostList';
